@@ -1,4 +1,4 @@
-package kotlin
+package kotlin.basics
 
 fun main() {
     // встроенная ф-ция arrayOf() принимает набор значений
@@ -56,13 +56,14 @@ fun main() {
 
     println("перебор двумерного массива с помощью вложенного цикла:")
     for(row in table) {  // для каждой строки в таблице
-        for(cell in row){  // для каждой ячейке в строке
+        for(cell in row){  // для каждой ячейки в строке
             print("$cell  ")
         }
         println()  // перевести строку
     }
 
 }
+
 
 private fun printTable(table: Array<Array<String>>) {
     print("table:  ")

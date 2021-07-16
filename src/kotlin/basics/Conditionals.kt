@@ -1,4 +1,4 @@
-package kotlin
+package kotlin.basics
 
 fun main() {
     // ОПЕРАЦИИ ОТНОШЕНИЯ: ==, !=, >, <, >=, <=, === (равенство ссылок)

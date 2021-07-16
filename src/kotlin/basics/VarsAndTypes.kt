@@ -1,4 +1,4 @@
-package kotlin
+package kotlin.basics
 
 import java.util.*
 
