@@ -1,4 +1,5 @@
-package kotlin.basics
+package basics
+
 
 fun main() {
     val str = "here is some string"
@@ -9,11 +10,7 @@ fun main() {
 
     // для каждого i в диапазоне индексов str
     for (i in str.indices) {
-        if (i % 2 == 0 && str[i].isLetter()) {
-            result += str[i].uppercase()
-        } else {
-            result += str[i]
-        }
+        result += if (i % 2 == 0) str[i].uppercase() else str[i]
     }
     println(result)
 
@@ -32,7 +29,7 @@ fun main() {
     println()
 
     print("for (i in 0 until 10 step 2):\t")
-    for (i in 0 until 10 step 2) {
+    for (i in 0 until 10 step 2) {  // 10 не включительно
         print("$i  ")
     }
     println()
@@ -82,10 +79,19 @@ fun main() {
     println()
 
 
-    var digits = listOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-    print("digits.forEach():\t")
+    val digits = listOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    print("digits.forEach({...}):\t")
+    // .forEach выполняет заданное действие (лямбда или ссылка на функцию) для каждого элемента
     digits.forEach {
         print("${it * 2}  ")
     }
     println()
+
+    print("digits.forEach(::printTripleVal):\t")
+    digits.forEach(::printTripleVal)
+}
+
+
+fun printTripleVal(a: Int) {
+    print("${a * 3}  ")
 }

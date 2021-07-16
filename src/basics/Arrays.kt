@@ -1,4 +1,5 @@
-package kotlin.basics
+package basics
+
 
 fun main() {
     // встроенная ф-ция arrayOf() принимает набор значений
@@ -65,7 +66,7 @@ fun main() {
 }
 
 
-private fun printTable(table: Array<Array<String>>) {
+fun printTable(table: Array<Array<String>>) {
     print("table:  ")
     table.forEach { print(it.contentToString()) }
     println()

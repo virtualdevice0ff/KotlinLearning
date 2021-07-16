@@ -1,4 +1,5 @@
-package kotlin.basics
+package basics
+
 
 fun main() {
     // ОПЕРАЦИИ ОТНОШЕНИЯ: ==, !=, >, <, >=, <=, === (равенство ссылок)
@@ -68,4 +69,5 @@ fun main() {
         (t xor f) -> println("only one is true")
         else -> println("both are false")
     }
+
 }

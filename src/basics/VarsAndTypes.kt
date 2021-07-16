@@ -1,4 +1,5 @@
-package kotlin.basics
+package basics
+
 
 import java.util.*
 
@@ -17,22 +18,22 @@ const val LANGUAGE_NAME = "Kotlin"
 */
 // принимающая аргументы main(args: Array<String>)
 fun main() { // начало ф-ции main
-    println("Hey, I'm learning Kotlin!")
+    println("Hey, I'm learning $LANGUAGE_NAME!")
 
     // Переменная - это именованный участок памяти, который хранит некоторое значение
     // Тип переменной выводится автоматически из присвоенного ей значения
     val immutableLocal = 42  // константа времени выполнения
     var mutableLocal = "text"  // изменяемая локальная переменная (можно присвоить другое значение)
     mutableLocal += " is here"
-    val explicitTyped: Char  // явное указание типа (необходимо только при объявлении без инициализации)
+    val explicitTyped: Char  // явное указание типа (необходимо при объявлении без инициализации)
     explicitTyped = 'A'
     println("$immutableLocal, $mutableLocal, $explicitTyped")
 
     val names = listOf("Andrey")
-    names.plusElement("Sergey") // не будет добавлен, т.к. names - val, а List - неизменяемый тип
+    names.plusElement("Sergey") // не будет добавлен, т.к. names - val, а List - неизменяемый (immutable) тип
     println("names = $names")
 
-    // беззнаковые числа инициализируется литералом с суффиксом U или u (НОВАЯ ЭКСПЕРИМЕНТАЛЬНАЯ ФИЧА)
+    // беззнаковые числа инициализируется литералом с суффиксом U или u
     val uB: UByte = 255U  // 8 бит, значения от 0 до 2^8 - 1
     val uS: UShort = 65535U  // 16 бит, значения от 0 до 2^16 - 1
     val uI: UInt = 4_294_967_295U  // 32 бита, значения от 0 до 2^32 - 1
@@ -53,14 +54,15 @@ fun main() { // начало ф-ции main
     val l: Long = 9_223_372_036_854_775_807  // 64 бита, значения от -2^63 до 2^63 - 1
 
     // Любой литерал с плавающей точкой воспринимается как Double
-    // Float инициализируется литералом с суффиксом F или f, деже с явным указанием типа переменной
+    // Float инициализируется литералом с суффиксом F или f, даже с явным указанием типа переменной
     val f: Float = 3.14F  // 32 бита, значения от -3.4 * 10^38 до 3.4 * 10^38
     val d: Double = 7.62  // 64 бита, значения от ±5.0 * 10^324 до ±1.7 * 10^308
     val eD: Double = 5.45e21  // Double поддерживает экспоненциальную запись XeY = X * 10^Y
     val flag: Boolean = true  // ТОЛЬКО true или false (НЕ 1 и 0)
-    val c: Char = 'C'  // 16 битные символы Юникода
-    val specialC: Char = '\t'  // Char может содержать управляющие последовательности (эскейп-последовательности)
-    val str: String = "this is a string"  // последовательность символов, теоретическая максимальная длина = Integer.MAX_VALUE
+    val c: Char = 'C'  // 16-битные символы Юникода
+    val specialC: Char = '\t'  // Char может содержать управляющие последовательности (escape sequences)
+    // String - последовательность символов
+    val str: String = "this is a string"  // т.к. length() возвращает Int, то теоретическая максимальная длина = Integer.MAX_VALUE
 
     // многострочная (""" ... """) шаблонная ($a или ${expression}) строка
     val multiLineTemplate: String = """
@@ -74,15 +76,14 @@ fun main() { // начало ф-ции main
 
     // Переменной типа Any можно присвоить любое значение
     var any: Any = "any var"
-    if (any is String) any = any.capitalized()  // собственная функция-расширение (замена capitalize) для String
+    if (any is String) any = any.capitalized()  // функция-расширение (замена capitalize) для String
     print("any = $any")
     any = 981274937
     any *= 2
     println(", any = $any")
 
-    println(11.inv())
-
 }  // конец ф-ции main
+
 
 /**
  * Replacement for Kotlin's deprecated `capitalize()` function.
